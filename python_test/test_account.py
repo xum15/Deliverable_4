@@ -1,4 +1,4 @@
-from testing.password import passwords
+from python_test.password import passwords
 
 def test_password():
 
