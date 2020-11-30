@@ -1,5 +1,7 @@
 from python_test.password import passwords
 
-def test_password():
-
-    p_word = passwords()
+def test_verify_valid_password():
+    valid_password = ["Sl1", "Gl2", "Fm3"]
+    p_code = passwords()
+    for value in valid_password:
+        assert p_code.verify_password(value) == True; "password should be valid"
