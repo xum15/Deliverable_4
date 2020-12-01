@@ -6,3 +6,10 @@ def test_verify_valid_password():
     p_code = passwords()
     for value in valid_password:
         assert p_code.verify_password(value) == True; "password should be valid"
+
+# Test to verify the invalid passwords
+def test_verify_invalid_password():
+    invalid_password = ["123456", "abcde", "AM"]
+    p_code = passwords()
+    for value in invalid_password:
+        assert p_code.verify_password(value) == False; "password should be invalid"
