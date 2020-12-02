@@ -1,5 +1,6 @@
 from python_test.account import passwords
 from python_test.account import accounts
+from python_test.account import order
 
 # Test to verify the valid passwords which consists of at least 8 characters
 # It must include an upper case letter, lower case letter and a number
@@ -13,18 +14,10 @@ def test_verify_valid_password():
 
 # Test to verify the invalid passwords
 def test_verify_invalid_password():
-    invalid_password = ["123456", "abcdef", "McMaster"]
+    invalid_password = ["123456", "abcdef", "McMaster", None]
     p_word = passwords()
     for passcode in invalid_password:
         assert p_word.verify_password(passcode) == False, "password should be invalid"
-
-
-# Test to verify if the system changes the old password to the new password for requirement 3.1.3
-def test_change_password():
-    p_code = passwords()
-    old = "Sabc13579"
-    new = "ABc1234567"
-    assert p_code.password_change(old, new) == new, "password should be changed to the new password"
 
 
 # Test to verify the valid accounts with unique account information
@@ -55,6 +48,14 @@ def test_invalid_account_2():
     assert account_1.verify_account() == False, "account information should be invalid as the passwords are different"
 
 
+# Test to verify if the system changes the old password to the new password for requirement 3.1.3
+def test_change_password():
+    account_1 = accounts("McMaster123", "Scba123456", "Scba123456", "suofqpd1200@gmail.com", "John Doe", "416-956-8837")
+    old = "Scba123456"
+    new = "ABc1234567"
+    assert account_1.password_change(old, new) == new, "password should be changed to the new password"
+
+
 # Test if the profile is changed by changing the email address
 # Requirement 3.1.3
 def test_change_profile():
@@ -74,5 +75,18 @@ def test_login_authentication_valid():
 def test_login_authentication_invalid():
     account_1 = accounts("McMaster456", "Scba123456", "Scba123456", "wings1122@gmail.com", "Rick Lee", "416-985-8531")
     assert account_1.login("McMaster456", "Scale1122") == False, "login information should be incorrect"
+
+
+# Test if the system returns the correct order information for an order ID in order history
+# Order class includes order(username, order ID, order time, order items, total price)
+# Requirement 3.1.4
+def test_view_order_history():
+    # Account
+    account_1 = accounts("McMaster123", "Scba123456", "Scba123456", "suofqpd1200@gmail.com", "John Doe", "416-956-8837")
+    # Creates an order for the account
+    items = ["Hamburger", "Smoothie", "Pizza", "Salad", "Ice Cream"]
+    order_1 = order("McMaster123", 369, "September 3, 2020 at 6:30PM", items, 55.99)
+    assert account_1.view_order_history(369) == order_1, "it shall display the information of order_1 for account_1"
+
 
 

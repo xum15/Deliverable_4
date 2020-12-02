@@ -8,7 +8,22 @@ class passwords:
     def password_change(self, old_password, new_password):
         return None
 
-class accounts(passwords):
+class order():
+
+    def __init__(self, username, order_ID, order_time, order_items, total_cost):
+        self.username = username
+        self.order_ID = order_ID
+        self.order_time = order_time
+        self.order_items = order_items
+        self.total_cost = total_cost
+
+    # Customer should be able to view any or the orders they made
+    # It shall display the order information of the selected order ID
+    def view_order_history(self, order_ID):
+            return None
+
+
+class accounts(passwords, order):
     
     def __init__(self, username, password, confirm_password, email, name, phone):
         self.username = username
