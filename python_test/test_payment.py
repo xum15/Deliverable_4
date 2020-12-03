@@ -1,5 +1,3 @@
-# This test file tests the requirements of the payment features
-
 from python_test.payment import creditcard
 from python_test.payment import paypal
 from python_test.payment import wechat_pay
@@ -8,6 +6,7 @@ from python_test.payment import send_order
 from python_test.account import order
 
 # Test valid credit card numbers
+# Requirement 3.2.2.1
 def test_valid_creditcard_number():
     valid_number = [4520038156423956, 4105865219623654, 4562321056428926]
     card_number = creditcard()
@@ -30,7 +29,7 @@ def test_valid_expirydate():
 
 # Test invalid credit card expiry dates
 def test_invalid_expirydate():
-    invalid_expdate = ["2/23", "6/25", "8/3", "5/29", "12/30"]
+    invalid_expdate = ["18/23", "6/35", "855", "Date", None]
     card_date = creditcard()
     for date in invalid_expdate:
         assert card_date.verify_expirydate(date) == False, "Credit card expiry date should be invalid"
@@ -103,6 +102,7 @@ def test_verify_invalid_wechat_account():
 
 
 # Test if the system can approve the customer's order if they chose to pay in restaurant for pickup
+# Requirement 3.2.4
 def test_pay_in_restaurant_for_pickup():
     items = ["Hamburger", "Smoothie", "Pizza", "Salad", "Ice Cream"]
     order_1 = order("McMaster123", 369, "September 3, 2020 at 6:30PM", items, 55.99)
@@ -111,6 +111,7 @@ def test_pay_in_restaurant_for_pickup():
 
 
 # Test if the system can display the estimated the pickup time for the customer's order that was sent to the kitchen
+# Requirement 3.2.5.1
 def test_pickup_time_estimation():
     items = ["Hamburger", "Smoothie", "Pizza", "Salad", "Ice Cream"]
     order_1 = order("McMaster123", 369, "September 3, 2020 at 6:30PM", items, 55.99)

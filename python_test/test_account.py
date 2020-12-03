@@ -1,12 +1,10 @@
-# This test file tests the requirements of the account features
-
 from python_test.account import passwords
 from python_test.account import accounts
 from python_test.account import order
 
 # Test to verify the valid passwords which consists of at least 8 characters
 # It must include an upper case letter, lower case letter and a number
-# Requirement 5.1.3
+# Requirement 3.1.1, 3.1.3, and 5.1.3
 def test_verify_valid_password():
     valid_password = ["Sabc13579", "Bmwac34567", "Aclaw1122"]
     p_word = passwords()
