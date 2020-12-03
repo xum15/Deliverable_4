@@ -1,3 +1,5 @@
+# This test file tests the requirements of the payment features
+
 from python_test.payment import creditcard
 from python_test.payment import paypal
 from python_test.payment import wechat_pay

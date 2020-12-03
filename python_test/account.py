@@ -22,7 +22,7 @@ class order():
     def view_order_history(self, order_ID):
             return None
 
-
+# Stores the account information
 class accounts(passwords, order):
     
     def __init__(self, username, password, confirm_password, email, name, phone):

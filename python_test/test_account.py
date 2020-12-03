@@ -1,3 +1,5 @@
+# This test file tests the requirements of the account features
+
 from python_test.account import passwords
 from python_test.account import accounts
 from python_test.account import order
