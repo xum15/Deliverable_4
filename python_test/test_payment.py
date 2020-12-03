@@ -54,6 +54,7 @@ def test_invalid_CVC_key():
 # Test if the system can verify the correct credential information
 # Credential information is shown in the following order:
 # Name, credit card number, expiry date, CVC key
+# Requirement 3.2.2.1
 def test_verify_valid_credential_authentication():
     correct_credential = [
         "John Doe",
@@ -81,6 +82,7 @@ def test_verify_invalid_credential_authentication():
 
 
 # Test if the system can verify a valid paypal account
+# Requirement 3.2.2.1
 def test_verify_valid_paypal_account():
     valid_account = paypal("aquaman1122@gmail.com", "McMaster321$")
     assert valid_account.verify_paypal_authentication() == True, "The paypal account information should be valid"
@@ -92,6 +94,7 @@ def test_verify_invalid_paypal_account():
     assert invalid_account.verify_paypal_authentication() == False, "The paypal account information should be invalid"
 
 # Test if the system can verify a valid wechat account
+# Requirement 3.2.2.1
 def test_verify_valid_wechat_account():
     valid_account = wechat_pay("aquaman8888", "McMaster321$", "QR Code")
     assert valid_account.verify_wechat_authentication() == True, "The wechat account information should be valid"
