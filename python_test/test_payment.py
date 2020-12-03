@@ -21,6 +21,7 @@ def test_invalid_creditcard_number():
         assert card_number.verify_creditcard_number(number) == False, "Credit card number should be invalid"
 
 # Test valid credit card expiry dates
+# Requirement 3.2.2.1
 def test_valid_expirydate():
     valid_expdate = ["2/23", "6/25", "8/3", "5/29", "12/30"]
     card_date = creditcard()
@@ -35,6 +36,7 @@ def test_invalid_expirydate():
         assert card_date.verify_expirydate(date) == False, "Credit card expiry date should be invalid"
 
 # Test valid credit card CVC keys
+# Requirement 3.2.2.1
 def test_valid_CVC_key():
     valid_CVC = [138, 939, 199, 885, 500]
     CVC_key = creditcard()
