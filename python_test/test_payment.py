@@ -110,7 +110,7 @@ def test_pay_in_restaurant_for_pickup():
     assert payment.pickup(order_1) == True, "The customer's order and payment method should be approved"
 
 
-# Test if the system can display the estimated the pickup time for the customer's order that was sent to the kitchen
+# Test if the system can display the estimated pickup time for the customer's order that was sent to the kitchen
 # Requirement 3.2.5.1
 def test_pickup_time_estimation():
     items = ["Hamburger", "Smoothie", "Pizza", "Salad", "Ice Cream"]
