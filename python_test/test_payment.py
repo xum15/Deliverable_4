@@ -74,7 +74,7 @@ def test_verify_invalid_credential_authentication():
     ]
 
     card = creditcard()
-    assert card.verify_credential_authentication(incorrect_credential) == True, "Credit card information is incorrect"
+    assert card.verify_credential_authentication(incorrect_credential) == False, "Credit card information is incorrect"
 
 
 # Test if the system can verify a valid paypal account
